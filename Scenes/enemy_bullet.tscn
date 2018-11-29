@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/enemy_bullet.gd" type="Script" id=1]
+[ext_resource path="res://Images/enemy_bullet.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 17.5236
+
+[node name="enemy_bullet" type="KinematicBody2D"]
+
+scale = Vector2( 0.394584, 0.394584 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.01
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "collision" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.0484812, 0.0484812 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+

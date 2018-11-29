@@ -1,0 +1,35 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Images/new_flame_0.png" type="Texture" id=1]
+[ext_resource path="res://Images/new_flame_1.png" type="Texture" id=2]
+[ext_resource path="res://Images/new_flame_2.png" type="Texture" id=3]
+[ext_resource path="res://Images/new_flame_3.png" type="Texture" id=4]
+[ext_resource path="res://Images/new_flame_4.png" type="Texture" id=5]
+[ext_resource path="res://Images/new_flame_5.png" type="Texture" id=6]
+[ext_resource path="res://Images/new_flame_6.png" type="Texture" id=7]
+[ext_resource path="res://Images/new_flame_7.png" type="Texture" id=8]
+[ext_resource path="res://Images/new_flame_8.png" type="Texture" id=9]
+[ext_resource path="res://Images/new_flame_9.png" type="Texture" id=10]
+[ext_resource path="res://Images/new_flame_10.png" type="Texture" id=11]
+[ext_resource path="res://Images/new_flame_11.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 20.0
+} ]
+
+[node name="thrust" type="AnimatedSprite"]
+
+position = Vector2( 0, 70 )
+scale = Vector2( 0.092694, 0.092694 )
+frames = SubResource( 1 )
+animation = "New Anim"
+frame = 7
+playing = true
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+

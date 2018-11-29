@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/thrust_flame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Images/spaceship.png" type="Texture" id=3]
+[ext_resource path="res://Images/transparent.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/player_sprite.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "transparent",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[node name="player" type="KinematicBody2D"]
+
+scale = Vector2( 0.802, 0.802 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="thrust" type="Node" parent="." index="0"]
+
+[node name="thrust_flame" parent="thrust" index="0" instance=ExtResource( 2 )]
+
+scale = Vector2( 0.802, 0.802 )
+
+[node name="player" type="Node" parent="." index="1"]
+
+[node name="player_sprite" type="AnimatedSprite" parent="player" index="0"]
+
+scale = Vector2( 0.094333, 0.094333 )
+frames = SubResource( 1 )
+animation = "transparent"
+script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="bullets" type="Node" parent="." index="2"]
+
+[node name="bullet_spot" type="Position2D" parent="." index="3"]
+
+position = Vector2( 0, -60 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="shotter_timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = true
+autostart = false
+
+[node name="collision_timer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="6"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.309476, -43.5943, -4.18476, -43.4098, -11.1972, -39.9035, -15.0725, -35.2901, -19.5013, -27.355, -24.1148, -14.2529, -26.8828, -1.70435, -33.3416, 2.90909, -38.5087, 8.07613, -42.384, 14.5349, -46.0747, 23.0236, -46.9974, 29.4824, -47.551, 36.6794, -44.0448, 34.834, -38.6932, 31.1433, -34.2643, 29.1134, -30.7581, 27.6371, -30.2045, 30.5897, -26.5138, 32.435, -25.5911, 36.3103, -15.6261, 41.8464, -3.44661, 44.2454, -3.11226, 44.3715, 8.36378, 42.9537, 20.9123, 38.3402, 24.234, 35.7567, 24.7876, 31.6969, 30.1392, 29.667, 29.7701, 26.5299, 37.3361, 29.2979, 42.1341, 32.066, 47.1166, 35.3876, 47.3011, 29.4824, 45.8248, 20.4401, 41.0269, 10.8442, 36.7825, 5.30807, 31.4309, 0.694641, 25.5257, -2.99611, 22.4291, -16.5176, 17.037, -28.6468, 11.87, -36.951, 4.85757, -42.8561 )
+disabled = true
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[connection signal="timeout" from="collision_timer" to="." method="_on_collision_timer_timeout"]
+
+

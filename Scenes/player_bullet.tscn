@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/player_bullet.gd" type="Script" id=1]
+[ext_resource path="res://Images/bullet.png" type="Texture" id=2]
+
+[node name="player_bullet" type="KinematicBody2D" index="0"]
+
+position = Vector2( 0.0997877, 6.22318 )
+scale = Vector2( 0.394584, 0.394584 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.01
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "collision" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -0.447903, -3.54596 )
+scale = Vector2( 0.283147, 0.283147 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -6.48035, -67.0733, -13.9881, -63.3195, -20.0881, -54.404, -20.5574, -34.2269, -19.1497, -9.82673, -18.2112, -0.442043, 16.9814, -0.442043, 19.7968, -35.6346, 21.2045, -49.7117, 13.6967, -65.1964, 1.0274, -68.9503 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+

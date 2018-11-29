@@ -1,0 +1,158 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/UI.gd" type="Script" id=1]
+[ext_resource path="res://Images/spaceship.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Enter the Grid.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+extra_spacing_char = 10
+extra_spacing_space = 10
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 80
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="UI" type="CanvasLayer" index="0"]
+
+pause_mode = 2
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="last_life" type="Sprite" parent="." index="0"]
+
+position = Vector2( 30, 37 )
+scale = Vector2( 0.0473056, 0.0473056 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="second_life" type="Sprite" parent="." index="1"]
+
+position = Vector2( 80, 35 )
+scale = Vector2( 0.0473056, 0.0473056 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="first_life" type="Sprite" parent="." index="2"]
+
+position = Vector2( 130, 35 )
+scale = Vector2( 0.0473056, 0.0473056 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="points" type="Label" parent="." index="3"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -83.0
+margin_top = 20.0
+margin_right = 83.0
+margin_bottom = 59.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Margin", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="transparent_background" type="ColorRect" parent="." index="4"]
+
+visible = false
+modulate = Color( 0.168627, 0, 0.309804, 0.66298 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="pause" type="Label" parent="." index="5"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Paused"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="game_over" type="Label" parent="." index="6"]
+
+pause_mode = 1
+visible = false
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -30.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Game Over"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Pause", "custom_fonts" ]
+
+[node name="game_over_timer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="game_over_timer" to="." method="_on_Game_over_timer_timeout"]
+
+

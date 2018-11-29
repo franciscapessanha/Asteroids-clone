@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/enemy.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/thrust_flame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Images/enemy.png" type="Texture" id=3]
+
+[node name="enemy" type="KinematicBody2D"]
+
+rotation = 1.5708
+scale = Vector2( 0.978585, 0.978585 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "collision" ]
+
+[node name="thrust_flame" parent="." index="0" instance=ExtResource( 2 )]
+
+modulate = Color( 0.323608, 0.651814, 0.941406, 1 )
+position = Vector2( 0.212619, -4.03982 )
+rotation = 2.90137e-13
+scale = Vector2( 0.783676, 0.783676 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -19.3208, -0.757698, -15.6977, -15.8076, -10.681, -25.8409, -5.38572, -30.0214, 0.188325, -31.4149, 7.15586, -27.5131, 13.2873, -19.7094, 16.9104, -8.56134, 18.5826, -2.1512, 26.665, 3.14413, 31.9603, 10.9478, 34.1899, 20.4236, 34.4686, 26.8338, 30.5668, 22.932, 23.5993, 19.5875, 21.091, 19.5875, 17.7465, 22.3745, 18.0252, 25.719, 6.87716, 30.4569, -4.2709, 31.5717, -15.6977, 27.6699, -18.4847, 26.2764, -18.7634, 23.2107, -22.1078, 22.0958, -22.1078, 19.8662, -29.0754, 22.932, -33.8133, 26.8338, -33.5346, 19.5875, -31.8624, 11.5052, -28.2393, 5.93114 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="enemy_bullets" type="Node" parent="." index="2"]
+
+[node name="bullet_spot" type="Position2D" parent="." index="3"]
+
+position = Vector2( -0.151853, -57.3737 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="shotter_timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.6
+one_shot = false
+autostart = false
+
+[node name="collision_timer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="sprite" type="Sprite" parent="." index="6"]
+
+scale = Vector2( 0.084849, 0.0835695 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[connection signal="timeout" from="shotter_timer" to="." method="_on_Shotter_timer_timeout"]
+
+[connection signal="timeout" from="collision_timer" to="." method="_on_Collision_timer_timeout"]
+
+

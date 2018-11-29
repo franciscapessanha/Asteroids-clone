@@ -1,0 +1,261 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://Images/Background.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Enter the Grid.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/path.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/thrust.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Images/spaceship.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 100
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 60
+use_mipmaps = false
+use_filter = true
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFontData" id=3]
+
+hinting = 2
+font_path = "res://Fonts/Enter the Grid.ttf"
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 60
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Curve2D" id=5]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.392914, 21.6759, -2.55791, -121.242, 8.86067, 98.8502, 119.079, 142.315, 0, 0, 56.0413, 30.0272, 167.502, 260.533, -36.1874, 18.4986, 150.189, -59.911, 314.553, 246.981, -37.4634, -23.0204, 173.14, 119.692, 699.343, 248.973, 46.5692, -35.1018, -103.458, 60.9891, 711.575, 518.816, 0, 0, -252.039, -110.717, 387.149, 529.733, -6.06347, -2.42539, 94.924, -72.1323, 309.203, 259.535, -55.099, -100.601, 59.7357, 67.6399, 793.703, 311.553, -22.7838, -3.2713, 101.337, 73.3277, 889.852, 450.502, 0, 0, 0, 0, 1023.66, 418.423 )
+}
+
+[node name="MarginContainer" type="MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Title" index="0"]
+
+position = Vector2( 502, 316 )
+scale = Vector2( 0.692632, 0.692632 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Options" type="VBoxContainer" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Anchor", "Rect", "Size Flags", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Label" parent="Options" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 98.0
+margin_right = 1016.0
+margin_bottom = 253.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Asteroids
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Visibility", "custom_fonts", "custom_styles" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Play" type="Label" parent="Options" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 257.0
+margin_right = 1016.0
+margin_bottom = 352.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Play
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Visibility", "custom_fonts", "custom_styles" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="How" type="Label" parent="Options" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 356.0
+margin_right = 1016.0
+margin_bottom = 451.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "How to play
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Exit" type="Label" parent="Options" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 455.0
+margin_right = 1016.0
+margin_bottom = 501.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Exit"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="path" type="Path2D" parent="." index="2"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+position = Vector2( -0.00072946, -0.285096 )
+rotation = -0.00255864
+scale = Vector2( 1, 1.01315 )
+curve = SubResource( 5 )
+script = ExtResource( 4 )
+
+[node name="follow" type="PathFollow2D" parent="path" index="0"]
+
+position = Vector2( 0.392914, 21.6759 )
+rotation = 0.0383607
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="spaceship" type="Node2D" parent="path/follow" index="0"]
+
+position = Vector2( 2.14639, -0.250675 )
+rotation = -4.5535
+scale = Vector2( 0.508715, 0.508715 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="thrust" parent="path/follow/spaceship" index="0" instance=ExtResource( 5 )]
+
+scale = Vector2( 0.0890963, 0.0890963 )
+frame = 4
+
+[node name="Sprite" type="Sprite" parent="path/follow/spaceship" index="1"]
+
+scale = Vector2( 0.117622, 0.117622 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+
