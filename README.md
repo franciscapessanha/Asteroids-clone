@@ -7,10 +7,10 @@
 The objective of the game is to destroy the asteroids and enemy spaceships. 
 The player can perform propulsion and rotation movements as well as firing. 
 ### Commands
-* Movement of the ship: arrow keys and WASD
-* Shoot: "Space" key
-* Pause: "Alt" key
-* Return to the home menu: "Escape" key
+* Movement of the ship: arrow keys and `WASD`
+* Shoot: `SPACE` key
+* Pause: `ALT` key
+* Return to the home menu: `ESC` key
 
 ## Scoring system
 * Large asteroids: 20 points
