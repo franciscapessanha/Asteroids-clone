@@ -20,3 +20,5 @@ The player can perform propulsion and rotation movements as well as firing.
 
 Note: Points will only be attributed when damage is caused by the player, i.e. any asteroid destroyed by the enemy ships will not 
 be taken into account for calculating the final score.
+
+*Assets designed by freepik - www.freepik.com*
